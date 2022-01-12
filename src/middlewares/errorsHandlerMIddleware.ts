@@ -8,7 +8,6 @@ export default (
   res: Response,
   next: NextFunction,
 ): Response => {
-  console.log("MIDDLEWARE AQUI !!!!!");
   console.error(err);
   if (!(err instanceof ResponseErrorFactory)) {
     res.statusCode = 500;

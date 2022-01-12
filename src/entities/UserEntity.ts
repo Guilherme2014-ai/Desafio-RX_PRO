@@ -1,9 +1,15 @@
-import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  BeforeInsert,
+  BaseEntity,
+} from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 import PasswordaHasher from "../password/passwordHasher";
 
 @Entity("users")
-export class UserEntity {
+export class UserEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: string;
 

@@ -14,6 +14,9 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 
   const token: string = authorization.split(" ")[1];
 
-  await verify(token, secret);
+  const payload = await verify(token, secret);
+
+  req["payload"] = payload;
+
   next();
 };
