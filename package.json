@@ -5,8 +5,7 @@
    "main": "./dist/server.js",
    "scripts": {
       "dev": "nodemon ./src/server.ts",
-      "start": "ts-node ./dist/server.ts",
-      "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+      "start": "node ./dist/server.js",
       "migration:create": "npx typeorm migration:create -n",
       "migration:run": "sucrase-node ./node_modules/typeorm/cli.js migration:run",
       "migration:run:undo": "sucrase-node ./node_modules/typeorm/cli.js migration:revert",
@@ -20,6 +19,7 @@
       "dotenv": "^11.0.0",
       "express": "^4.17.2",
       "express-async-errors": "^3.1.1",
+      "jsonwebtoken": "^8.5.1",
       "mysql": "^2.14.1",
       "mysql2": "^2.3.3",
       "reflect-metadata": "^0.1.10",
@@ -28,6 +28,7 @@
    },
    "devDependencies": {
       "@types/express": "^4.17.13",
+      "@types/jsonwebtoken": "^8.5.7",
       "@types/node": "^8.0.29",
       "@types/uuid": "^8.3.4",
       "@typescript-eslint/eslint-plugin": "^5.9.1",
