@@ -39,7 +39,6 @@
       "eslint-plugin-import": "^2.25.4",
       "eslint-plugin-prettier": "^4.0.0",
       "prettier": "^2.5.1",
-      "reflect-metadata": "^0.1.13",
       "sucrase": "^3.20.3",
       "typescript": "^3.3.3333",
       "ts-node": "^10.4.0"
