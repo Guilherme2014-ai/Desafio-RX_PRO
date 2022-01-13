@@ -55,7 +55,7 @@ exports.default = (function (userLoginRequest) { return __awaiter(void 0, void 0
                 _a.trys.push([0, 5, , 6]);
                 email = userLoginRequest.email, password = userLoginRequest.password;
                 if (!email || !password)
-                    throw new ResponseErrorFactory_1.default("Email and Password Required !", 401);
+                    throw new ResponseErrorFactory_1.default("Email and Password Required !", 400);
                 return [4 /*yield*/, typeorm_1.getCustomRepository(UserRepository_1.UserRepository)];
             case 1:
                 _userRepository = _a.sent();
@@ -63,7 +63,7 @@ exports.default = (function (userLoginRequest) { return __awaiter(void 0, void 0
             case 2:
                 user = _a.sent();
                 if (!user)
-                    throw new ResponseErrorFactory_1.default("User doesn't Exists !", 400);
+                    throw new ResponseErrorFactory_1.default("Non-existent User !", 404);
                 password_hash = user.password_hash, name_1 = user.name, id = user.id;
                 return [4 /*yield*/, new passwordHasher_1.default(password).Compare(password_hash)];
             case 3:

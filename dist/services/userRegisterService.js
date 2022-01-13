@@ -61,7 +61,7 @@ exports.default = (function (userRequest) { return __awaiter(void 0, void 0, voi
                 _a.trys.push([0, 3, , 4]);
                 name_1 = userRequest.name, email = userRequest.email, password = userRequest.password;
                 if (!name_1 || !email || !password)
-                    throw new ResponseErrorFactory_1.default("Some Field wasn't Filled !", 401);
+                    throw new ResponseErrorFactory_1.default("Some Field wasn't Filled !", 400);
                 _userRepository = typeorm_1.getCustomRepository(UserRepository_1.UserRepository);
                 return [4 /*yield*/, _userRepository.findOne({
                         where: { email: email },

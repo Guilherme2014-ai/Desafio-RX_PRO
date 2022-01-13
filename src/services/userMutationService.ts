@@ -6,8 +6,6 @@ import { UserRepository } from "../repositories/UserRepository";
 import EntriesToObjectFactory from "../factory/EntriesToObjectFactory";
 import IUserPayload from "../interfaces/IUserPayload";
 
-// definir Interface do payload.
-
 export default async (
   mutationRequest: IUsersMutationRequest,
   userPayload: IUserPayload,

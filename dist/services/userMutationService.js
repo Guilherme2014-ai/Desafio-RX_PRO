@@ -43,7 +43,6 @@ var typeorm_1 = require("typeorm");
 var ResponseErrorFactory_1 = __importDefault(require("../factory/ResponseErrorFactory"));
 var UserRepository_1 = require("../repositories/UserRepository");
 var EntriesToObjectFactory_1 = __importDefault(require("../factory/EntriesToObjectFactory"));
-// definir Interface do payload.
 exports.default = (function (mutationRequest, userPayload) { return __awaiter(void 0, void 0, void 0, function () {
     var dataEntries, dataToUpdate, id, _userRepository, userUpdated, e_1;
     return __generator(this, function (_a) {

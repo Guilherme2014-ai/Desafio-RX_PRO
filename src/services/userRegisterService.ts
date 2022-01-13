@@ -11,7 +11,7 @@ export default async (
     const { name, email, password } = userRequest;
 
     if (!name || !email || !password)
-      throw new ResponseErrorFactory("Some Field wasn't Filled !", 401);
+      throw new ResponseErrorFactory("Some Field wasn't Filled !", 400);
 
     const _userRepository = getCustomRepository(UserRepository);
 

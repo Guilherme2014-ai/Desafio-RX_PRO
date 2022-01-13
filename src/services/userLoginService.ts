@@ -13,12 +13,12 @@ export default async (userLoginRequest: IUserLoginRequest): Promise<string> => {
   try {
     const { email, password } = userLoginRequest;
     if (!email || !password)
-      throw new ResponseErrorFactory("Email and Password Required !", 401);
+      throw new ResponseErrorFactory("Email and Password Required !", 400);
 
     const _userRepository = await getCustomRepository(UserRepository);
     const user = await _userRepository.findOne({ email });
 
-    if (!user) throw new ResponseErrorFactory("User doesn't Exists !", 400);
+    if (!user) throw new ResponseErrorFactory("Non-existent User !", 404);
 
     const { password_hash, name, id } = user;
     const passwordMatch = await new PasswordaHasher(password).Compare(
@@ -27,7 +27,7 @@ export default async (userLoginRequest: IUserLoginRequest): Promise<string> => {
 
     if (!passwordMatch) throw new ResponseErrorFactory("Wrong Password !", 401);
 
-    const secret = process.env.JWT_PASS;
+    const secret = process.env.JWT_PASS as string;
     return await sign(
       {
         email,

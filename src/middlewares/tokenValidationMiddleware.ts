@@ -6,13 +6,24 @@ import { config } from "dotenv";
 
 config({ path: resolve(__dirname, "..", "..", ".env") });
 
-const secret = process.env.JWT_PASS;
+const secret = process.env.JWT_PASS as string;
 
-export default async (req: Request, res: Response, next: NextFunction) => {
+interface IUserLoggedPayload extends Request {
+  payload: object;
+}
+
+export default async (
+  req: IUserLoggedPayload,
+  res: Response,
+  next: NextFunction,
+) => {
   const authorization = req.headers["authorization"];
   if (!authorization) throw new ResponseErrorFactory("Token Required !", 400);
 
-  const token: string = authorization.split(" ")[1];
+  const token: string =
+    authorization.split(" ").length > 1
+      ? authorization.split(" ")[1]
+      : authorization;
 
   const payload = await verify(token, secret);
 

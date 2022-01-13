@@ -53,7 +53,9 @@ exports.default = (function (req, res, next) { return __awaiter(void 0, void 0, 
                 authorization = req.headers["authorization"];
                 if (!authorization)
                     throw new ResponseErrorFactory_1.default("Token Required !", 400);
-                token = authorization.split(" ")[1];
+                token = authorization.split(" ").length > 1
+                    ? authorization.split(" ")[1]
+                    : authorization;
                 return [4 /*yield*/, jsonwebtoken_1.verify(token, secret)];
             case 1:
                 payload = _a.sent();
