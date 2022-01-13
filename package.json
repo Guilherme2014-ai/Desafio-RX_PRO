@@ -6,7 +6,7 @@
    "scripts": {
       "dev": "nodemon ./src/server.ts",
       "start": "node ./dist/server.js",
-      "build": "tsc --build",
+      "build": "npx tsc",
       "migration:create": "npx typeorm migration:create -n",
       "migration:run": "sucrase-node ./node_modules/typeorm/cli.js migration:run",
       "migration:run:undo": "sucrase-node ./node_modules/typeorm/cli.js migration:revert",
