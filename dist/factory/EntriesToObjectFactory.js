@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = (function (entries) {
     var obj = {};
     entries.forEach(function (KeyValue) {
-        var key = KeyValue[0], value = KeyValue[1];
+        var _a = KeyValue, key = _a[0], value = _a[1];
         obj["" + key] = value;
     });
     return obj;

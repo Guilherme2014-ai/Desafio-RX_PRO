@@ -3,7 +3,7 @@ import ResponseErrorFactory from "../factory/ResponseErrorFactory";
 import IResponseErrors from "../interfaces/IResponseErrors";
 
 export default (
-  err,
+  err: unknown,
   req: Request,
   res: Response,
   next: NextFunction,

@@ -11,5 +11,11 @@ var userMutationController_1 = __importDefault(require("../controller/public/use
 var router = express_1.Router();
 router.post("/users/register", userRegisterController_1.default);
 router.post("/users/login", userLoginController_1.default);
-router.put("/users/mutation", tokenValidationMiddleware_1.default, userMutationController_1.default);
+router.put("/users/mutation", function (request, res, next) {
+    var req = request; // Alteração feita por conta de bugs
+    tokenValidationMiddleware_1.default(req, res, next);
+}, function (request, res) {
+    var req = request;
+    userMutationController_1.default(req, res);
+});
 exports.default = router;

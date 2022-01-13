@@ -3,14 +3,11 @@ import ResponseErrorFactory from "../factory/ResponseErrorFactory";
 import { verify } from "jsonwebtoken";
 import { resolve } from "path";
 import { config } from "dotenv";
+import IUserLoggedPayload from "../interfaces/IUserLoggedRequest";
 
 config({ path: resolve(__dirname, "..", "..", ".env") });
 
 const secret = process.env.JWT_PASS as string;
-
-interface IUserLoggedPayload extends Request {
-  payload: object;
-}
 
 export default async (
   req: IUserLoggedPayload,
