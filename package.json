@@ -6,6 +6,7 @@
    "scripts": {
       "dev": "nodemon ./src/server.ts",
       "start": "node ./dist/server.js",
+      "build": "tsc --build",
       "migration:create": "npx typeorm migration:create -n",
       "migration:run": "sucrase-node ./node_modules/typeorm/cli.js migration:run",
       "migration:run:undo": "sucrase-node ./node_modules/typeorm/cli.js migration:revert",
@@ -14,19 +15,18 @@
    "author": "GUilherme Henrique",
    "license": "ISC",
    "dependencies": {
-      "@types/bcrypt": "^5.0.0",
       "bcrypt": "^5.0.1",
       "dotenv": "^11.0.0",
       "express": "^4.17.2",
       "express-async-errors": "^3.1.1",
       "jsonwebtoken": "^8.5.1",
-      "mysql": "^2.14.1",
       "mysql2": "^2.3.3",
       "reflect-metadata": "^0.1.10",
       "typeorm": "0.2.41",
       "uuid": "^8.3.2"
    },
    "devDependencies": {
+      "@types/bcrypt": "^5.0.0",
       "@types/express": "^4.17.13",
       "@types/jsonwebtoken": "^8.5.7",
       "@types/node": "^8.0.29",
@@ -42,7 +42,7 @@
       "prettier": "^2.5.1",
       "reflect-metadata": "^0.1.13",
       "sucrase": "^3.20.3",
-      "ts-node": "3.3.0",
-      "typescript": "3.3.3333"
+      "typescript": "^3.3.3333",
+      "ts-node": "^10.4.0"
    }
 }

@@ -1,4 +1,4 @@
-import * as express from "express";
+import express from "express";
 import connection from "./database";
 import routes from "./routes";
 import errorsHandlerMIddleware from "./middlewares/errorsHandlerMIddleware";
@@ -21,6 +21,7 @@ class App {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
   }
+
   private Routes() {
     this.app.use("/", routes);
 
