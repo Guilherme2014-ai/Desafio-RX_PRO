@@ -11,10 +11,11 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -48,12 +49,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var ResponseErrorFactory_1 = __importDefault(require("../factory/ResponseErrorFactory"));
 var typeorm_1 = require("typeorm");
 var UserRepository_1 = require("../repositories/UserRepository");
-exports.default = (function (userRequest) { return __awaiter(_this, void 0, void 0, function () {
+exports.default = (function (userRequest) { return __awaiter(void 0, void 0, void 0, function () {
     var name_1, email, password, _userRepository, userAlreadyExistsInDbs, user, e_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -70,7 +70,7 @@ exports.default = (function (userRequest) { return __awaiter(_this, void 0, void
                 userAlreadyExistsInDbs = _a.sent();
                 if (userAlreadyExistsInDbs)
                     throw new ResponseErrorFactory_1.default("This user was already Created !", 406);
-                return [4 /*yield*/, _userRepository.create(__assign({}, userRequest, { password_hash: password }))];
+                return [4 /*yield*/, _userRepository.create(__assign(__assign({}, userRequest), { password_hash: password }))];
             case 2:
                 user = _a.sent();
                 _userRepository.save(user);
