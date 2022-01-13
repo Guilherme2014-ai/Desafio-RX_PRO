@@ -11,6 +11,7 @@ const databaseConfig = {
   password: process.env.DATABASE_PASSWORD,
   database: "Desafio_RX_PRO",
   logging: true,
+  synchronize: true,
   entities: [UserEntity],
 };
 

@@ -1,16 +1,15 @@
 import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert } from "typeorm";
-import { v4 as uuidV4 } from "uuid";
 import PasswordaHasher from "../password/passwordHasher";
 
 @Entity("users")
 export class UserEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({ unsigned: true })
   id: string;
 
   @Column()
   name: string;
 
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Column()
@@ -20,7 +19,6 @@ export class UserEntity {
   async handle() {
     const hash = await new PasswordaHasher(this.password_hash).Hash();
 
-    this.id = `${uuidV4()}`;
     this.password_hash = hash;
   }
 }

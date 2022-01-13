@@ -50,7 +50,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserEntity = void 0;
 var typeorm_1 = require("typeorm");
-var uuid_1 = require("uuid");
 var passwordHasher_1 = __importDefault(require("../password/passwordHasher"));
 var UserEntity = /** @class */ (function () {
     function UserEntity() {
@@ -63,7 +62,6 @@ var UserEntity = /** @class */ (function () {
                     case 0: return [4 /*yield*/, new passwordHasher_1.default(this.password_hash).Hash()];
                     case 1:
                         hash = _a.sent();
-                        this.id = "" + uuid_1.v4();
                         this.password_hash = hash;
                         return [2 /*return*/];
                 }
@@ -71,7 +69,7 @@ var UserEntity = /** @class */ (function () {
         });
     };
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn(),
+        typeorm_1.PrimaryGeneratedColumn({ unsigned: true }),
         __metadata("design:type", String)
     ], UserEntity.prototype, "id", void 0);
     __decorate([
@@ -79,7 +77,7 @@ var UserEntity = /** @class */ (function () {
         __metadata("design:type", String)
     ], UserEntity.prototype, "name", void 0);
     __decorate([
-        typeorm_1.Column(),
+        typeorm_1.Column({ unique: true }),
         __metadata("design:type", String)
     ], UserEntity.prototype, "email", void 0);
     __decorate([
