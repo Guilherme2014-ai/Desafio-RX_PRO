@@ -3,6 +3,14 @@
 ## Sobre a API
 Esta API foi construida em Node com Type Script / Java Script, TypeORM como ORM, Express e JWT como Ferramenta de Validação de Token.
 
+## Getting Started
+- Baixar ou Clonar o Repositório na Máquina.
+- Colar as informações do ".env" Recebidas do dono da API na Pasta ".env". -- Motivo: Segurança
+- `npm install`
+- `npm start`
+- API Rodando !
+- OBS: A API roda na PORTA 80.
+
 ## Rotas
 
 ### POST - /users/register
